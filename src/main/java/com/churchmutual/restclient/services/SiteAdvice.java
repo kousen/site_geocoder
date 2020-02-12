@@ -7,7 +7,6 @@ import javax.validation.ConstraintViolationException;
 
 @RestControllerAdvice
 public class SiteAdvice {
-    @ResponseBody
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public String productNotFoundHandler(ConstraintViolationException ex) {
