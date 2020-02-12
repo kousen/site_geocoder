@@ -25,6 +25,5 @@ public class RestclientApplication implements CommandLineRunner {
         service.addSite("Merrill", "WI");
         service.addSite("Green Bay", "WI");
         service.addSite("Wausau", "WI");
-        service.addSite("Hartford", "CT");
     }
 }
