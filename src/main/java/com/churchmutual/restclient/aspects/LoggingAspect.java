@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class LoggingAspect {
     private Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-    //@Before("execution(* com.churchmutual.restclient.*.*.*(..))")
+    @Before("execution(* com.churchmutual.restclient.*.*.*(..))")
     public void logMethodCalls(JoinPoint joinPoint) {
         logger.info("About to execute " + joinPoint.getSignature());
     }
