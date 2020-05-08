@@ -38,7 +38,7 @@ public class SiteController {
             System.out.println(errors.getAllErrors());
         }
         Site site = service.addSite(address.getCity(), address.getState());
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .path("/{id}")
                 .buildAndExpand(site.getId())
                 .toUri();
