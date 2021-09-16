@@ -21,15 +21,14 @@ import java.util.stream.Collectors;
 public class GeocoderService {
     private static final String KEY = "AIzaSyDw_d6dfxDEI7MAvqfGXEIsEMwjC1PWRno";
 
-    private WebClient client;
+    private final WebClient client;
 
-    private SiteRepository repository;
+    private final SiteRepository repository;
 
     @Autowired
     public GeocoderService(WebClient.Builder builder, SiteRepository repository) {
         this.repository = repository;
-        client = builder.baseUrl("https://maps.googleapis.com")
-                .build();
+        client = builder.baseUrl("https://maps.googleapis.com").build();
     }
 
     public List<Site> getAll() {
@@ -49,10 +48,9 @@ public class GeocoderService {
         String encoded = Arrays.stream(address)
                 .map(component -> URLEncoder.encode(component, StandardCharsets.UTF_8))
                 .collect(Collectors.joining(","));
-        String path = "/maps/api/geocode/json";
         Response response = client.get()
                 .uri(uriBuilder ->
-                        uriBuilder.path(path)
+                        uriBuilder.path("/maps/api/geocode/json")
                                 .queryParam("address", encoded)
                                 .queryParam("key", KEY)
                                 .build())

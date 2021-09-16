@@ -13,7 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Transactional
 class GeocoderServiceTest {
-    private Logger logger = LoggerFactory.getLogger(GeocoderServiceTest.class);
+    private final Logger logger =
+            LoggerFactory.getLogger(GeocoderServiceTest.class);
 
     @Autowired
     private GeocoderService service;
